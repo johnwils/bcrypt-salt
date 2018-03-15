@@ -1,0 +1,34 @@
+{
+  "name": "bcrypt-salt",
+  "version": "1.0.0",
+  "description": "Automatically set ’saltRounds’ for bcrypt based on a maximum allowed hash time.",
+  "author": "John Wilson <johnner@me.com> (https://jdwilson.ca)",
+  "license": "MIT",
+  "keywords": [
+    "bcrypt-salt",
+    "bcrypt",
+    "salt",
+    "hash"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johnwils/bcrypt-salt.git"
+  },
+  "bugs": "https://github.com/johnwils/bcrypt-salt/issues",
+  "contributors": [
+    "John Wilson"
+  ],
+  "homepage": "https://github.com/johnwils/bcrypt-salt",
+  "engines": {},
+  "scripts": {
+    "build": "babel src --out-dir lib"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "bcrypt": "^1.0.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  }
+}
