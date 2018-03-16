@@ -51,7 +51,7 @@ class BcryptSalt {
   endLog() {
     this.logs &&
       console.log(
-        `\nReccomended bcrypt saltRounds for this hardware is ${
+        `\nRecommended bcrypt saltRounds for this hardware is ${
           this.saltRounds
         } running in ${this.hashTime}ms.\n1 higher exceeds max hash time (${
           this.maxHashTime

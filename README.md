@@ -43,7 +43,7 @@ const BcryptSalt = require('bcrypt-salt');
 // runs synchronously
 const bs = new BcryptSalt({
    maxHashTime: 500,   // default: 500ms
-   logs: true,          // default: true
+   logs: true,         // default: true
 });
 
 /**
