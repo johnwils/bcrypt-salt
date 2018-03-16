@@ -11,7 +11,7 @@ class BcryptSalt {
     this.maxHashTime =
       args && typeof args.maxHashTime === 'number' && args.maxHashTime > 0
         ? args.maxHashTime
-        : 1000;
+        : 500;
     this.logs =
       args && typeof args.logs === 'boolean' && args.logs === false
         ? false
