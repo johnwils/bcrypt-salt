@@ -8,6 +8,10 @@ Profile hardware performance to calculate the most secure `saltRounds` to use in
 2. Use the `saltRounds` value returned from `bcrypt-salt` as bcrypt's `saltRounds` value
 
 ## usage with bcrypt
+Install:
+```
+npm install bcrypt-salt --save
+```
 
 Before:
 ```javascript
@@ -38,7 +42,7 @@ const BcryptSalt = require('bcrypt-salt');
 
 // runs synchronously
 const bs = new BcryptSalt({
-   maxHashTime: 1000,   // default: 1000ms
+   maxHashTime: 500,   // default: 500ms
    logs: true,          // default: true
 });
 
@@ -54,9 +58,28 @@ console.log(bs.saltRounds);
 
 // number of milliseconds taken to calculate the hash
 console.log(bs.hashTime);
-// ex: 238ms
+// ex: 316ms
 ```
 
+For reference, here are the results of the above example (running on a MBP 2015 laptop):
+```bash
+saltRounds:  1, hashTime: 1.5116290000000845ms
+saltRounds:  2, hashTime: 2.9353470000000925ms
+saltRounds:  3, hashTime: 4.262208999999984ms
+saltRounds:  4, hashTime: 5.647235000000137ms
+saltRounds:  5, hashTime: 8.489819000000125ms
+saltRounds:  6, hashTime: 13.52793900000006ms
+saltRounds:  7, hashTime: 23.719949000000042ms
+saltRounds:  8, hashTime: 43.463322999999946ms
+saltRounds:  9, hashTime: 84.93861500000003ms
+saltRounds: 10, hashTime: 159.71765900000014ms
+saltRounds: 11, hashTime: 316.371854ms
+saltRounds: 12, hashTime: 614.3531209999999ms
+
+Recommended bcrypt saltRounds for this hardware is 11 running in 316.371854ms.
+
+1 higher exceeds max hash time (500ms)
+```
 ## Examples:
 
 Ensure a minimum `saltRounds` value of 10:
@@ -81,6 +104,18 @@ const bs = new BcryptSalt({
 
 const saltRounds = bs.saltRounds >= 10 ? bs.saltRounds : 10;
 const hash = bcrypt.hashSync("my plain text password" bs.saltRounds);
+```
+---
+Usage with Meteor (version 1.6.1 or higher):
+```javascript
+import { Meteor } from "meteor/meteor";
+import { Accounts } from "meteor/accounts-base";
+import BcryptSalt from "bcrypt-salt";
+
+Meteor.startup(() => {
+  const bs = new BcryptSalt({ maxHashTime: 500, logs: true });
+  Accounts._options.bcryptRounds = bs.saltRounds;
+});
 ```
 
 ### More about bcrypt and saltRounds
