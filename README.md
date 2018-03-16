@@ -18,7 +18,7 @@ Before:
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-var hash = bcrypt.hashSync("my plain text password" saltRounds);
+const hash = bcrypt.hashSync("my plain text password" saltRounds);
 ```
 
 After:
