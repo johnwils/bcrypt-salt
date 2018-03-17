@@ -32,7 +32,7 @@ const hash = bcrypt.hashSync("my plain text password" bs.saltRounds);
 
 Benefits over setting manually:
 - remove the guess work of how high to set `saltRounds`
-- calculate the highest `saltRounds` your hardware can use, given a max allowed hash time (defaults to 1000ms)
+- calculate the highest `saltRounds` your hardware can use, given a max allowed hash time (defaults to 500ms)
 - generate more secure hashes automaticaly when running on faster hardware
 
 **Custom settings:**
@@ -93,13 +93,13 @@ const saltRounds = bs.saltRounds >= 10 ? bs.saltRounds : 10;
 const hash = bcrypt.hashSync("my plain text password" bs.saltRounds);
 ```
 ---
-Ensure a minimum `saltRounds` value of 10 and the highest `saltRounds` possible under 500ms hash time:
+Ensure a minimum `saltRounds` value of 10 and the highest `saltRounds` possible under 100ms hash time:
 ```javascript
 const bcrypt = require('bcrypt');
 const BcryptSalt = require('bcrypt-salt');
 
 const bs = new BcryptSalt({
-  maxHashTime: 500
+  maxHashTime: 100
 });
 
 const saltRounds = bs.saltRounds >= 10 ? bs.saltRounds : 10;
@@ -117,9 +117,11 @@ Meteor.startup(() => {
   Accounts._options.bcryptRounds = bs.saltRounds;
 });
 ```
+### More about bcrypt saltRounds
 
-### More about bcrypt and saltRounds
-
-The complexity of the hash is directly related to the `saltRounds`. The higher the `saltRounds`, the more secure the hash. However, setting this too high can take a really long time resulting in a bad user experience (i.e. when creating accounts based on a hashed password or logging in).
+The calculation time of the hash is directly related to the `saltRounds`. A higher `saltRounds` ensures more complex and secure hashes are used. However, setting this too high can take a really long time resulting in a bad user experience (i.e. when creating accounts based on a hashed password). Every subsequent login will take the same amount of time as when creating the account.
 
 Checkout the [brypt npm documentation](https://www.npmjs.com/package/bcrypt#a-note-on-rounds)
+
+### maxHashTime, why default to 500ms?
+500ms is provided as a default value. A time that is acceptable for each use case is subjective, so not meant as a recommendation. Each developer can set this to what works best for them. A value of 1000ms might work for you, or 250ms. Note: anything higher then 10000ms will generate a warning because (honestly, that is ridiculous).
