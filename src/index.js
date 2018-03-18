@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-var now = require('performance-now');
+const now = require('performance-now');
 
 class BcryptSalt {
   /**
