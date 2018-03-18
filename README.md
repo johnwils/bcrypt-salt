@@ -124,4 +124,4 @@ The calculation time of the hash is directly related to the `saltRounds`. A high
 Checkout the [brypt npm documentation](https://www.npmjs.com/package/bcrypt#a-note-on-rounds)
 
 ### maxHashTime, why default to 500ms?
-500ms is provided as a default value. A time that is acceptable for each use case is subjective, so not meant as a recommendation. Each developer can set this to what works best for them. A value of 1000ms might work for you, or 250ms. Note: anything higher then 10000ms will generate a warning because (honestly, that is ridiculous).
+500ms is provided as a default value. A time that is acceptable for each use case is subjective, so not meant as a recommendation. Each developer can set this to what works best for them. A value of 1000ms might work for you, or 250ms. Note: anything higher then 10000ms currently generates a warning.
