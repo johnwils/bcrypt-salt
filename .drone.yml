@@ -15,7 +15,7 @@ pipeline:
 
   rebuild-cache:
     image: drillster/drone-volume-cache
-    rebuild: true
+    rebuild: false
     mount:
       - ./node_modules
     volumes:
@@ -24,5 +24,4 @@ pipeline:
   frontend:
     image: node:8
     commands:
-      - npm install
       - npm test
