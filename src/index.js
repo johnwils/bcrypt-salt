@@ -1,5 +1,5 @@
-const bcrypt = require('bcrypt');
-const now = require('performance-now');
+import bcrypt from 'bcrypt';
+import now from 'performance-now';
 
 class BcryptSalt {
   /**
