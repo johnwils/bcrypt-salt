@@ -1,6 +1,6 @@
 {
   "name": "bcrypt-salt",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Automatically set ’saltRounds’ for bcrypt based on a maximum allowed hash time.",
   "author": "John Wilson <johnner@me.com> (https://jdwilson.ca)",
   "license": "MIT",
