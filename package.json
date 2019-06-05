@@ -21,7 +21,7 @@
   ],
   "homepage": "https://github.com/johnwils/bcrypt-salt",
   "engines": {
-    "node": ">=4.8.7"
+    "node": ">=8.16.0"
   },
   "scripts": {
     "build": "babel src --out-dir lib",
