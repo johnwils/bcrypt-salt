@@ -29,13 +29,14 @@
   },
   "main": "lib/index.js",
   "dependencies": {
-    "bcrypt": "^3.0.1",
+    "bcrypt": "^3.0.6",
     "performance-now": "^2.1.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "jest": "^23.6.0"
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "jest": "^24.8.0"
   },
   "jest": {
     "testEnvironment": "node"
