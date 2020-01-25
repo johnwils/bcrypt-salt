@@ -1,6 +1,6 @@
 {
   "name": "bcrypt-salt",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Automatically set ’saltRounds’ for bcrypt based on a maximum allowed hash time.",
   "author": "John Wilson <johnner@me.com> (https://jdwilson.ca)",
   "license": "MIT",
@@ -29,14 +29,14 @@
   },
   "main": "lib/index.js",
   "dependencies": {
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^3.0.7",
     "performance-now": "^2.1.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.0",
-    "@babel/core": "^7.5.4",
-    "@babel/preset-env": "^7.5.4",
-    "jest": "^24.8.0"
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "jest": "^25.1.0"
   },
   "jest": {
     "testEnvironment": "node"
