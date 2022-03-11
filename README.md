@@ -98,7 +98,7 @@ const BcryptSalt = require('bcrypt-salt');
 const bs = new BcryptSalt();
 
 const saltRounds = bs.saltRounds >= 10 ? bs.saltRounds : 10;
-const hash = bcrypt.hashSync("my plain text password", bs.saltRounds);
+const hash = bcrypt.hashSync("my plain text password", saltRounds);
 ```
 
 ---
@@ -114,7 +114,7 @@ const bs = new BcryptSalt({
 });
 
 const saltRounds = bs.saltRounds >= 10 ? bs.saltRounds : 10;
-const hash = bcrypt.hashSync("my plain text password", bs.saltRounds);
+const hash = bcrypt.hashSync("my plain text password", saltRounds);
 ```
 
 ---
