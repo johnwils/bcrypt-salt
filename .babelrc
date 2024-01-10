@@ -4,7 +4,7 @@
       "@babel/preset-env",
       {
         "targets": {
-          "node": "12.22.10"
+          "node": "18.19.0"
         },
         "modules": "commonjs"
       }
